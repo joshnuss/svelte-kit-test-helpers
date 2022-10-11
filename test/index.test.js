@@ -131,16 +131,16 @@ describe('request', () => {
   })
 
   describe('json', () => {
-    const GET = ({ request }) => request.json()
+    const POST = ({ request }) => request.json()
 
     test('defaults to empty', async () => {
-      const response = await request(GET)
+      const response = await request(POST)
 
       expect(response).toBeNull()
     })
 
     test('passes value', async () => {
-      const response = await request(GET, {
+      const response = await request(POST, {
         body: {
           id: 't-shirt',
           name: 'T-Shirt'
@@ -151,6 +151,30 @@ describe('request', () => {
         id: 't-shirt',
         name: 'T-Shirt'
       })
+    })
+  })
+
+  describe('formData', () => {
+    const POST = ({ request }) => request.formData()
+
+    test('defaults to empty', async () => {
+      const response = await request(POST)
+
+      expect(response).toBeNull()
+    })
+
+    test('passes value', async () => {
+      const formData = new FormData()
+
+      formData.append('username', 'neo')
+      formData.append('password', 'matrix')
+
+      const response = await request(POST, {
+        body: formData
+      })
+
+      expect(response.get('username')).toBe('neo')
+      expect(response.get('password')).toBe('matrix')
     })
   })
 })
