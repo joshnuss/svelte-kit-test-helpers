@@ -10,7 +10,7 @@ export function request(handler, options = {}) {
   const headers = new Map()
   const formData = options.body instanceof FormData ? options.body : null
   const body = options.body || null
-  const text = typeof(options.body) == 'string' ? options.body : null
+  const text = typeof options.body == 'string' ? options.body : null
   const request = {
     headers,
     method,
