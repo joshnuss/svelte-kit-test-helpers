@@ -109,4 +109,24 @@ describe('request', () => {
       expect(response).toBe('abcd1234')
     })
   })
+
+  describe('headers', () => {
+    const GET = ({ headers }) => headers.get('authorization')
+
+    test('defaults to empty', async () => {
+      const response = await request(GET)
+
+      expect(response).toBe(undefined)
+    })
+
+    test('can customize headers', async () => {
+      const response = await request(GET, {
+        headers: {
+          authorization: 'boss'
+        }
+      })
+
+      expect(response).toBe('boss')
+    })
+  })
 })
