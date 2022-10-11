@@ -76,5 +76,17 @@ describe('request', () => {
 
       expect(response).toBe('http://localhost/about/us')
     })
+
+    test('can customize query string', async () => {
+      const response = await request(GET, {
+        url: {
+          query: {
+            search: 'apples'
+          }
+        }
+      })
+
+      expect(response).toBe('http://localhost/?search=apples')
+    })
   })
 })
