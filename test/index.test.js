@@ -28,4 +28,23 @@ describe('request', () => {
     })
   })
 
+  describe('params', () => {
+    test('defaults to empty', async () => {
+      const GET = ({params}) => params
+      const response = await request(GET)
+
+      expect(response).toStrictEqual({})
+    })
+
+    test('passes values', async () => {
+      const GET = ({params}) => params.accountId
+      const response = await request(GET, {
+        params: {
+          accountId: 'account123'
+        }
+      })
+
+      expect(response).toBe('account123')
+    })
+  })
 })
