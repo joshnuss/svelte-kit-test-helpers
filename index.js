@@ -8,7 +8,7 @@ export function request(handler, options = {}) {
   const url = new URL(path, origin)
   const cookies = new Map()
   const headers = new Map()
-  const formData = (options.body instanceof FormData) ? options.body : null
+  const formData = options.body instanceof FormData ? options.body : null
   const body = options.body || null
   const request = {
     headers,
