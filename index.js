@@ -5,11 +5,18 @@ export function request(handler, options = {}) {
   const path = options.url?.path || '/'
   const query = options.url?.query
   const url = new URL(path, origin)
-  const event = { locals, params, url }
+  const cookies = new Map()
+  const event = { locals, params, cookies, url }
 
   if (query) {
     for (const [key, value] of Object.entries(query)) {
       url.searchParams.set(key, value)
+    }
+  }
+
+  if (options.cookies) {
+    for (const [key, value] of Object.entries(options.cookies)) {
+      cookies.set(key, value)
     }
   }
 

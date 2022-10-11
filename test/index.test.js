@@ -89,4 +89,24 @@ describe('request', () => {
       expect(response).toBe('http://localhost/?search=apples')
     })
   })
+
+  describe('cookies', () => {
+    const GET = ({ cookies }) => cookies.get('session')
+
+    test('defaults to empty', async () => {
+      const response = await request(GET)
+
+      expect(response).toBe(undefined)
+    })
+
+    test('can customize cookies', async () => {
+      const response = await request(GET, {
+        cookies: {
+          session: 'abcd1234'
+        }
+      })
+
+      expect(response).toBe('abcd1234')
+    })
+  })
 })
