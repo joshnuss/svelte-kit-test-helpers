@@ -1,6 +1,7 @@
 export function request(handler, options = {}) {
   const locals = options.locals || {}
   const params = options.params || {}
+  const method = options.method || 'GET'
   const origin = options.url?.origin || 'http://localhost'
   const path = options.url?.path || '/'
   const query = options.url?.query
@@ -11,6 +12,7 @@ export function request(handler, options = {}) {
   const body = options.body || null
   const request = {
     headers,
+    method,
     async json() {
       return body
     },

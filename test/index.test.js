@@ -8,6 +8,24 @@ describe('request', () => {
     expect(response).toBe('result')
   })
 
+  describe('method', () => {
+    const GET = ({ request }) => request.method
+
+    test('defaults to GET', async () => {
+      const response = await request(GET)
+
+      expect(response).toBe('GET')
+    })
+
+    test('passes values', async () => {
+      const response = await request(GET, {
+        method: 'POST'
+      })
+
+      expect(response).toBe('POST')
+    })
+  })
+
   describe('locals', () => {
     test('defaults to empty', async () => {
       const GET = ({ locals }) => locals
