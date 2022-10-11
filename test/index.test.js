@@ -47,4 +47,34 @@ describe('request', () => {
       expect(response).toBe('account123')
     })
   })
+
+  describe('url', () => {
+    const GET = ({url}) => url.toString()
+
+    test('defaults to localhost', async () => {
+      const response = await request(GET)
+
+      expect(response).toBe('http://localhost/')
+    })
+
+    test('can customize origin', async () => {
+      const response = await request(GET, {
+        url: {
+          origin: 'https://example.com'
+        }
+      })
+
+      expect(response).toBe('https://example.com/')
+    })
+
+    test('can customize path', async () => {
+      const response = await request(GET, {
+        url: {
+          path: '/about/us'
+        }
+      })
+
+      expect(response).toBe('http://localhost/about/us')
+    })
+  })
 })
