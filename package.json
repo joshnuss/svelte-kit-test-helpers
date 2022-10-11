@@ -8,9 +8,13 @@
     "format": "prettier --plugin-search-dir . --write .",
     "test": "vitest"
   },
-  "keywords": [],
+  "keywords": [
+    "svelte",
+    "sveltekit",
+    "vitest"
+  ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
