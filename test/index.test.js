@@ -129,4 +129,28 @@ describe('request', () => {
       expect(response).toBe('boss')
     })
   })
+
+  describe('json', () => {
+    const GET = ({ request }) => request.json()
+
+    test('defaults to empty', async () => {
+      const response = await request(GET)
+
+      expect(response).toBeNull()
+    })
+
+    test('passes value', async () => {
+      const response = await request(GET, {
+        body: {
+          id: 't-shirt',
+          name: 'T-Shirt'
+        }
+      })
+
+      expect(response).toStrictEqual({
+        id: 't-shirt',
+        name: 'T-Shirt'
+      })
+    })
+  })
 })

@@ -7,7 +7,13 @@ export function request(handler, options = {}) {
   const url = new URL(path, origin)
   const cookies = new Map()
   const headers = new Map()
-  const request = { headers }
+  const body = options.body || null
+  const request = {
+    headers,
+    async json() {
+      return body
+    }
+  }
   const event = { locals, params, cookies, request, url }
 
   if (query) {
