@@ -7,7 +7,8 @@ export function request(handler, options = {}) {
   const url = new URL(path, origin)
   const cookies = new Map()
   const headers = new Map()
-  const event = { locals, params, cookies, headers, url }
+  const request = { headers }
+  const event = { locals, params, cookies, request, url }
 
   if (query) {
     for (const [key, value] of Object.entries(query)) {

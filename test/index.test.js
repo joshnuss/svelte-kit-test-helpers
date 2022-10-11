@@ -111,7 +111,7 @@ describe('request', () => {
   })
 
   describe('headers', () => {
-    const GET = ({ headers }) => headers.get('authorization')
+    const GET = ({ request }) => request.headers.get('authorization')
 
     test('defaults to empty', async () => {
       const response = await request(GET)
