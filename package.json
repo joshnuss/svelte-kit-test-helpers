@@ -7,7 +7,8 @@
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
     "format": "prettier --plugin-search-dir . --write .",
     "test": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage"
   },
   "keywords": [
     "svelte",
@@ -17,6 +18,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@vitest/coverage-c8": "^0.24.1",
     "@vitest/ui": "^0.24.1",
     "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
