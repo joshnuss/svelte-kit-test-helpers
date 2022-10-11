@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   test: {
-    globals: true
+    globals: true,
+    setupFiles: ['./test/setup.js']
   }
 })
