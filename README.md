@@ -1,12 +1,12 @@
 ## Test helpers for SvelteKit
 
-Provides helpers and matchers for testing SvelteKit endpoints.
+Provides helper functions and matchers for testing SvelteKit endpoints.
 
 Extracted from [Sky Cart](https://github.com/joshnuss/sky-cart)
 
 ## Request helper
 
-Utility function for testing endpoints:
+A utility function for testing endpoints:
 
 ```javascript
 // test/routes/index.test.js
