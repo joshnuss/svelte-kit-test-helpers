@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['eslint:recommended', 'prettier'],
+  extends: ['eslint:recommended', 'prettier', 'plugin:vitest-globals/recommended'],
   parserOptions: {
     sourceType: 'module',
     ecmaVersion: 2020
@@ -8,6 +8,7 @@ module.exports = {
   env: {
     browser: true,
     es2017: true,
-    node: true
+    node: true,
+    'vitest-globals/env': true
   }
 }
