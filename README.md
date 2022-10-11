@@ -1,5 +1,4 @@
-Test helpers for SvelteKit
---------------------------
+## Test helpers for SvelteKit
 
 Provides helpers and matchers for testing SvelteKit endpoints.
 

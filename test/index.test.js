@@ -10,14 +10,14 @@ describe('request', () => {
 
   describe('locals', () => {
     test('defaults to empty', async () => {
-      const GET = ({locals}) => locals
+      const GET = ({ locals }) => locals
       const response = await request(GET)
 
       expect(response).toStrictEqual({})
     })
 
     test('passes values', async () => {
-      const GET = ({locals}) => locals.account
+      const GET = ({ locals }) => locals.account
       const response = await request(GET, {
         locals: {
           account: 'account123'
@@ -30,14 +30,14 @@ describe('request', () => {
 
   describe('params', () => {
     test('defaults to empty', async () => {
-      const GET = ({params}) => params
+      const GET = ({ params }) => params
       const response = await request(GET)
 
       expect(response).toStrictEqual({})
     })
 
     test('passes values', async () => {
-      const GET = ({params}) => params.accountId
+      const GET = ({ params }) => params.accountId
       const response = await request(GET, {
         params: {
           accountId: 'account123'
@@ -49,7 +49,7 @@ describe('request', () => {
   })
 
   describe('url', () => {
-    const GET = ({url}) => url.toString()
+    const GET = ({ url }) => url.toString()
 
     test('defaults to localhost', async () => {
       const response = await request(GET)
