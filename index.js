@@ -1,3 +1,3 @@
-export function request(endpointFn) {
-  return endpointFn()
+export function request(handler) {
+  return handler()
 }
