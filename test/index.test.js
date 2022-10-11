@@ -195,4 +195,22 @@ describe('request', () => {
       expect(response.get('password')).toBe('matrix')
     })
   })
+
+  describe('text', () => {
+    const POST = ({ request }) => request.text()
+
+    test('defaults to empty', async () => {
+      const response = await request(POST)
+
+      expect(response).toBeNull()
+    })
+
+    test('passes value', async () => {
+      const response = await request(POST, {
+        body: 'text body'
+      })
+
+      expect(response).toBe('text body')
+    })
+  })
 })
